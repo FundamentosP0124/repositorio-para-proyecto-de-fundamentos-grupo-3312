@@ -2,12 +2,13 @@
 #include <ctime>
 using namespace std;
 // declaracion funcion
-string dificultad2();
+string dificultad2(int& opc);
 // codigo principal
 int main()
 {
     // declaracion de variables
-    int PrincipalElection, ModoElection;
+    int PrincipalElection, ModoElection,opc1;
+    string palabra;
     // while para repetir el menu hasta que el usuario decida salir
     while (true)
     {
@@ -43,10 +44,10 @@ int main()
                     return 0;
                     break;
                 case 3:
-                    dificultad2();
+                    palabra= dificultad2(opc1);
                     break;
                 case 4:
-                    return 0;
+                    palabra= dificultad2(opc1);
                     break;
 
                 default:
@@ -83,14 +84,14 @@ int main()
 }
 
 // Funcion dificultad para 3 y 4 personas
-string dificultad2()
+string dificultad2(int& opc)
 {
     // declaracion variables
     string Facil[15] = {"plumas", "jirafa", "mueble", "estufa", "libros", "hormiga", "caminar", "manzana", "parpado", "fuegos", "reglas", "botella", "cuadro", "pintura", "ardilla"};
     string Intermedio[15] = {"mariposas", "pantuflas", "esmeralda", "fantasma", "florero", "cocodrilo", "alimentos", "galletas", "panaderos", "salvavidas", "espejismo", "trompeta", "aventuras", "buzonero", "caminante"};
     string Dificil[15] = {"helicoptero", "maravilloso", "astronauta", "computadora", "arquitecto", "maratonista", "deslizador", "libelula", "panoramico", "carismatico", "tradicional", "estanteria", "dinosaurio", "ferrocarril", "agradecido"};
     string palabra;
-    int opc;
+    //int opc;
     char difelection;
 
     system("cls");
