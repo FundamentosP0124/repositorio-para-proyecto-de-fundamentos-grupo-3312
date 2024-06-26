@@ -12,6 +12,14 @@ int main()
     cout << "4) Salir." << "\n";
     cout << "Porfavor, ingrese su eleccion: " << "\n";
     cin >> PrincipalElection;
-
+    //Switch para opciones del menu principal.
+    switch (PrincipalElection)
+    {
+    default:
+        cout << "\n";
+        cout << "Error opcion ingresada no valida." << "\n";
+        cout << "Porfavor, ingrese una de las opciones del menu." << "\n";
+        cout << "\n";
+    }
     return 0;
 }
