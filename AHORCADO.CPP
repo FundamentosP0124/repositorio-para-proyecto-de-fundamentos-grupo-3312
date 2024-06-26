@@ -1,10 +1,10 @@
 #include <iostream>
 using namespace std;
-// declaracion de variables
-int PrincipalElection, ModoElection;
 // codigo principal
 int main()
 {
+    // declaracion de variables
+    int PrincipalElection, ModoElection;
     // while para repetir el menu hasta que el usuario decida salir
     while (true)
     {
@@ -33,18 +33,38 @@ int main()
 
                 switch (ModoElection)
                 {
+                case 1:
+                    return 0;
+                    break;
+                case 2:
+                    return 0;
+                    break;
+                case 3:
+                    return 0;
+                    break;
+                case 4:
+                    return 0;
+                    break;
 
+                default:
+                    system("cls");
+                    cout << "Error opcion ingresada no valida." << "\n";
+                    cout << "Porfavor, ingrese una de las opciones del menu." << "\n";
+                    cout << "\n";
                 }
             }
         case 2:
+            system("cls");
             cout << "Preguntas frecuentes:" << endl;
             break;
         case 3:
-            cout << "Equipo de trabajo: " << "\n";
+            system("cls");
+            cout << "\tEquipo de trabajo: " << "\n";
             cout << "walter Samuel Guillen Gonzalez / No de Carnet: 00097524." << "\n";
             cout << "Stephanie Alessandra Vasquez Maravilla / No de Carnet: 00056024." << "\n";
             break;
         case 4:
+            system("cls");
             cout << "\n";
             cout << "Usted ha salido exitosamente del programa." << "\n";
             cout << "Gracias por jugar :)" << "\n";
