@@ -1,5 +1,8 @@
 #include <iostream>
+#include <ctime>
 using namespace std;
+// declaracion funcion
+string dificultad2();
 // codigo principal
 int main()
 {
@@ -40,7 +43,7 @@ int main()
                     return 0;
                     break;
                 case 3:
-                    return 0;
+                    dificultad2();
                     break;
                 case 4:
                     return 0;
@@ -77,4 +80,56 @@ int main()
             cout << "\n";
         }
     }
+}
+
+// Funcion dificultad para 3 y 4 personas
+string dificultad2()
+{
+    // declaracion variables
+    string Facil[15] = {"plumas", "jirafa", "mueble", "estufa", "libros", "hormiga", "caminar", "manzana", "parpado", "fuegos", "reglas", "botella", "cuadro", "pintura", "ardilla"};
+    string Intermedio[15] = {"mariposas", "pantuflas", "esmeralda", "fantasma", "florero", "cocodrilo", "alimentos", "galletas", "panaderos", "salvavidas", "espejismo", "trompeta", "aventuras", "buzonero", "caminante"};
+    string Dificil[15] = {"helicoptero", "maravilloso", "astronauta", "computadora", "arquitecto", "maratonista", "deslizador", "libelula", "panoramico", "carismatico", "tradicional", "estanteria", "dinosaurio", "ferrocarril", "agradecido"};
+    string palabra;
+    int opc;
+    char difelection;
+
+    system("cls");
+    // while en caso de ingresar opcion no valida
+    while (difelection != '1' && difelection != '2' && difelection != '3')
+    {
+        // menu de dificultad
+        cout << "\tMODOS DE DIFICULTAD: " << "\n";
+        cout << "1) Facil." << "\n";
+        cout << "2) Intermedio." << "\n";
+        cout << "3) Dificil." << "\n";
+        cout << "Porfavor,ingrese su eleccion: " << "\n";
+        cin >> difelection;
+
+        // switch para eleccion dificultad
+        switch (difelection)
+        {
+        case '1':
+            srand(time(0));
+            opc = rand() % 15;
+            palabra = Facil[opc];
+            break;
+        case '2':
+            srand(time(0));
+            opc = rand() % 15;
+            palabra = Intermedio[opc];
+            break;
+        case '3':
+            srand(time(0));
+            opc = rand() % 15;
+            palabra = Dificil[opc];
+            break;
+
+        default:
+            system("cls");
+            cout << "Error. opcion ingresada no valida." << "\n";
+            cout << "Porfavor, ingrese una de las opciones del menu." << "\n";
+            cout << "\n";
+        }
+    }
+    return palabra;
 }
