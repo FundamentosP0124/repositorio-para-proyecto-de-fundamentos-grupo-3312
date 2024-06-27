@@ -3,12 +3,12 @@
 using namespace std;
 // declaracion funcion
 string dificultad2(int& opc);
-string Dificultad();
+string Dificultad(int& opc);
 // codigo principal
 int main()
 {
     // declaracion de variables
-    int PrincipalElection, ModoElection,opc1;
+    int PrincipalElection, ModoElection,opc;
     string palabra;
     // while para repetir el menu hasta que el usuario decida salir
     while (true)
@@ -39,16 +39,16 @@ int main()
                 switch (ModoElection)
                 {
                 case 1:
-                    Dificultad();
+                    palabra = Dificultad(opc);
                     break;
                 case 2:
-                    return 0;
+                    palabra = Dificultad(opc);
                     break;
                 case 3:
-                    palabra= dificultad2(opc1);
+                    palabra= dificultad2(opc);
                     break;
                 case 4:
-                    palabra= dificultad2(opc1);
+                    palabra= dificultad2(opc);
                     break;
 
                 default:
@@ -136,7 +136,7 @@ string dificultad2(int& opc)
     return palabra;
 }
 //Funcion dificultad para 1 y 2 personas.
-string Dificultad()
+string Dificultad(int& opc)
 {
     //Declaracion de variables.
     string ModoFacil[15] = {"libro", "amigo", "silla", "bosque", "carro", "zurdo", "ajeno", "fruta", "verde", "viento", "litro", "verbo", "grifo", "blusa", "cauce"};
