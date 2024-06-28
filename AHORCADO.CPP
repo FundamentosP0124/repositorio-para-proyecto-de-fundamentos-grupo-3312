@@ -8,7 +8,8 @@ string Dificultad(int& opc);
 int main()
 {
     // declaracion de variables
-    int PrincipalElection, ModoElection,opc;
+    char PrincipalElection, ModoElection;
+    int opc;
     string palabra;
     // while para repetir el menu hasta que el usuario decida salir
     while (true)
@@ -24,7 +25,7 @@ int main()
         // Switch para opciones del menu principal.
         switch (PrincipalElection)
         {
-        case 1:
+        case '1':
             system("cls");
             while (true)
             {
@@ -38,16 +39,16 @@ int main()
 
                 switch (ModoElection)
                 {
-                case 1:
+                case '1':
                     palabra = Dificultad(opc);
                     break;
-                case 2:
+                case '2':
                     palabra = Dificultad(opc);
                     break;
-                case 3:
+                case '3':
                     palabra= dificultad2(opc);
                     break;
-                case 4:
+                case '4':
                     palabra= dificultad2(opc);
                     break;
 
@@ -58,17 +59,17 @@ int main()
                     cout << "\n";
                 }
             }
-        case 2:
+        case '2':
             system("cls");
             cout << "Preguntas frecuentes:" << endl;
             break;
-        case 3:
+        case '3':
             system("cls");
             cout << "\tEquipo de trabajo: " << "\n";
             cout << "walter Samuel Guillen Gonzalez / No de Carnet: 00097524." << "\n";
             cout << "Stephanie Alessandra Vasquez Maravilla / No de Carnet: 00056024." << "\n";
             break;
-        case 4:
+        case '4':
             system("cls");
             cout << "\n";
             cout << "Usted ha salido exitosamente del programa." << "\n";
@@ -92,7 +93,6 @@ string dificultad2(int& opc)
     string Intermedio[15] = {"mariposas", "pantuflas", "esmeralda", "fantasma", "florero", "cocodrilo", "alimentos", "galletas", "panaderos", "salvavidas", "espejismo", "trompeta", "aventuras", "buzonero", "caminante"};
     string Dificil[15] = {"helicoptero", "maravilloso", "astronauta", "computadora", "arquitecto", "maratonista", "deslizador", "libelula", "panoramico", "carismatico", "tradicional", "estanteria", "dinosaurio", "ferrocarril", "agradecido"};
     string palabra;
-    //int opc;
     char difelection;
 
     system("cls");
@@ -143,7 +143,6 @@ string Dificultad(int& opc)
     string ModoIntermedio[15] = {"abismo", "carcel", "lampara", "musculo", "polvora", "simbolo", "dictado", "purpura", "trebol", "picada", "tiempo", "trabajo", "batalla", "persona", "celeste"};
     string ModoDificil[15] = {"xilofono", "quimica", "kilometro", "girasoles", "cangrejos", "panteras", "cosechas", "tornados", "borrasca", "triángulo", "subtitulos", "alfareros", "carretera", "remolinos", "gravedad"};
     string palabra;
-    int opc;
     char DifElection;
 
     system("cls");
