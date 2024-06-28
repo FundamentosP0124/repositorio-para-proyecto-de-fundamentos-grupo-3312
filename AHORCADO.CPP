@@ -4,6 +4,9 @@ using namespace std;
 // declaracion funcion
 string dificultad2(int& opc);
 string Dificultad(int& opc);
+void Jugar(string palabra);
+//Variables globales
+int vida=6;
 // codigo principal
 int main()
 {
@@ -40,6 +43,7 @@ int main()
                 {
                 case 1:
                     palabra = Dificultad(opc);
+                    Jugar(palabra);
                     break;
                 case 2:
                     palabra = Dificultad(opc);
@@ -143,7 +147,6 @@ string Dificultad(int& opc)
     string ModoIntermedio[15] = {"abismo", "carcel", "lampara", "musculo", "polvora", "simbolo", "dictado", "purpura", "trebol", "picada", "tiempo", "trabajo", "batalla", "persona", "celeste"};
     string ModoDificil[15] = {"xilofono", "quimica", "kilometro", "girasoles", "cangrejos", "panteras", "cosechas", "tornados", "borrasca", "triángulo", "subtitulos", "alfareros", "carretera", "remolinos", "gravedad"};
     string palabra;
-    int opc;
     char DifElection;
 
     system("cls");
@@ -185,4 +188,14 @@ string Dificultad(int& opc)
         }
     }
     return palabra;
+}
+
+//Funcion jugar partida
+void Jugar(string palabra)
+{
+    system("cls");
+    while(vida > 0)
+    {
+        cout<<"\t<<<<<<<<AHORCADO GAME>>>>>>>>"<<"\n";
+    }
 }
