@@ -2,11 +2,12 @@
 #include <ctime>
 using namespace std;
 // declaracion funcion
-string dificultad2(int& opc);
-string Dificultad(int& opc);
+string dificultad2(int &opc);
+string Dificultad(int &opc);
 void Jugar(string palabra);
-//Variables globales
-int vida=6;
+void Cuerpo();
+// Variables globales
+int vida = 6;
 // codigo principal
 int main()
 {
@@ -50,10 +51,10 @@ int main()
                     palabra = Dificultad(opc);
                     break;
                 case '3':
-                    palabra= dificultad2(opc);
+                    palabra = dificultad2(opc);
                     break;
                 case '4':
-                    palabra= dificultad2(opc);
+                    palabra = dificultad2(opc);
                     break;
 
                 default:
@@ -90,7 +91,7 @@ int main()
 }
 
 // Funcion dificultad para 3 y 4 personas
-string dificultad2(int& opc)
+string dificultad2(int &opc)
 {
     // declaracion variables
     string Facil[15] = {"plumas", "jirafa", "mueble", "estufa", "libros", "hormiga", "caminar", "manzana", "parpado", "fuegos", "reglas", "botella", "cuadro", "pintura", "ardilla"};
@@ -139,10 +140,10 @@ string dificultad2(int& opc)
     }
     return palabra;
 }
-//Funcion dificultad para 1 y 2 personas.
-string Dificultad(int& opc)
+// Funcion dificultad para 1 y 2 personas.
+string Dificultad(int &opc)
 {
-    //Declaracion de variables.
+    // Declaracion de variables.
     string ModoFacil[15] = {"libro", "amigo", "silla", "bosque", "carro", "zurdo", "ajeno", "fruta", "verde", "viento", "litro", "verbo", "grifo", "blusa", "cauce"};
     string ModoIntermedio[15] = {"abismo", "carcel", "lampara", "musculo", "polvora", "simbolo", "dictado", "purpura", "trebol", "picada", "tiempo", "trabajo", "batalla", "persona", "celeste"};
     string ModoDificil[15] = {"xilofono", "quimica", "kilometro", "girasoles", "cangrejos", "panteras", "cosechas", "tornados", "borrasca", "triángulo", "subtitulos", "alfareros", "carretera", "remolinos", "gravedad"};
@@ -150,17 +151,17 @@ string Dificultad(int& opc)
     char DifElection;
 
     system("cls");
-    //while para repetir el menu si el usuario ingresa una opcion invalida.
-    while (DifElection!='1'&& DifElection!='2' && DifElection!='3')
+    // while para repetir el menu si el usuario ingresa una opcion invalida.
+    while (DifElection != '1' && DifElection != '2' && DifElection != '3')
     {
-        //Mostrar menu de dificultad.
+        // Mostrar menu de dificultad.
         cout << "\tMODOS DE DIFICULTAD: " << "\n";
         cout << "1) Facil." << "\n";
         cout << "2) Intermedio." << "\n";
         cout << "3) Dificil." << "\n";
         cout << "Porfavor, ingrese su eleccion: " << "\n";
         cin >> DifElection;
-        //Switch para opciones del menu de dificultad / Casos con semilla para determinar palabra a utilizar en el juego.
+        // Switch para opciones del menu de dificultad / Casos con semilla para determinar palabra a utilizar en el juego.
         switch (DifElection)
         {
         case '1':
@@ -190,12 +191,90 @@ string Dificultad(int& opc)
     return palabra;
 }
 
-//Funcion jugar partida
+// Funcion jugar partida
 void Jugar(string palabra)
 {
     system("cls");
-    while(vida > 0)
+    while (vida > 0)
     {
-        cout<<"\t<<<<<<<<AHORCADO GAME>>>>>>>>"<<"\n";
+        cout << "\t<<<<<<<<AHORCADO GAME>>>>>>>>" << "\n";
+        Cuerpo();
+    }
+}
+// Funcion para el dibujo de ahorcado.
+void Cuerpo()
+{
+    switch (vida)
+    {
+    case 6:
+        cout << " _________" << endl;
+        cout << " |       |" << endl;
+        cout << " | " << endl;
+        cout << " | " << endl;
+        cout << " | " << endl;
+        cout << " | " << endl;
+        cout << " | " << endl;
+        cout << "___" << endl;
+        break;
+    case 5:
+        cout << " _________" << endl;
+        cout << " |       |" << endl;
+        cout << " |       O" << endl;
+        cout << " | " << endl;
+        cout << " | " << endl;
+        cout << " | " << endl;
+        cout << " | " << endl;
+        cout << "___" << endl;
+        break;
+    case 4:
+        cout << " _________" << endl;
+        cout << " |       |" << endl;
+        cout << " |       O" << endl;
+        cout << " |       |" << endl;
+        cout << " | " << endl;
+        cout << " | " << endl;
+        cout << " | " << endl;
+        cout << "___" << endl;
+        break;
+    case 3:
+        cout << " _________" << endl;
+        cout << " |       |" << endl;
+        cout << " |       O" << endl;
+        cout << " |      /|" << endl;
+        cout << " | " << endl;
+        cout << " | " << endl;
+        cout << " | " << endl;
+        cout << "___" << endl;
+        break;
+    case 2:
+        cout << " _________" << endl;
+        cout << " |       |" << endl;
+        cout << " |       O" << endl;
+        cout << " |      /|\\" << endl;
+        cout << " | " << endl;
+        cout << " | " << endl;
+        cout << " | " << endl;
+        cout << "___" << endl;
+        break;
+    case 1:
+        cout << " _________" << endl;
+        cout << " |       |" << endl;
+        cout << " |       O" << endl;
+        cout << " |      /|\\" << endl;
+        cout << " |      /" << endl;
+        cout << " | " << endl;
+        cout << " | " << endl;
+        cout << "___" << endl;
+        break;
+    case 0:
+        cout << " _________" << endl;
+        cout << " |       |" << endl;
+        cout << " |       O" << endl;
+        cout << " |      /|\\" << endl;
+        cout << " |      / \\" << endl;
+        cout << " | " << endl;
+        cout << " | " << endl;
+        cout << "---" << endl;
+        break;
     }
 }
