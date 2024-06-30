@@ -8,6 +8,8 @@ void Jugar(string palabra);
 void Cuerpo();
 // Variables globales
 int vida = 6;
+string PalabraEscondida;
+string Errores;
 // codigo principal
 int main()
 {
@@ -15,6 +17,9 @@ int main()
     char PrincipalElection, ModoElection;
     int opc;
     string palabra;
+    PalabraEscondida= "";
+    Errores="";
+
     // while para repetir el menu hasta que el usuario decida salir
     while (true)
     {
@@ -195,10 +200,17 @@ string Dificultad(int &opc)
 void Jugar(string palabra)
 {
     system("cls");
+    for(int i=0;i<(int)palabra.size(); i++)
+    {
+        PalabraEscondida +="-";
+    }
     while (vida > 0)
     {
         cout << "\t<<<<<<<<AHORCADO GAME>>>>>>>>" << "\n";
         Cuerpo();
+        cout<<"\n";
+        cout<<"Errores: "<<"\t"<<Errores<<"\n";
+        cout<<"Palabra a adivinar: "<<"\t"<<PalabraEscondida<<"\n";
     }
 }
 // Funcion para el dibujo de ahorcado.
