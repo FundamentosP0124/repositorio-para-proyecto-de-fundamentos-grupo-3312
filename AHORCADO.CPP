@@ -1,15 +1,20 @@
 #include <iostream>
 #include <ctime>
 using namespace std;
-// declaracion funcion
+
+// Declaracion de funciones
 string dificultad2(int &opc);
 string Dificultad(int &opc);
 void Jugar(string palabra);
 void Cuerpo();
+
 // Variables globales
 int vida = 6;
 string PalabraEscondida;
 string Errores;
+char LetraSeleccionada;
+bool LetraCorrecta, PalabraCompleta;
+
 // codigo principal
 int main()
 {
@@ -17,14 +22,17 @@ int main()
     char PrincipalElection, ModoElection;
     int opc;
     string palabra;
-    PalabraEscondida= "";
-    Errores="";
+    PalabraEscondida = "";
+    Errores = "";
 
     // while para repetir el menu hasta que el usuario decida salir
     while (true)
     {
         // Mostrar menu del juego
-        cout << "\t<<<<MENU DE JUEGO>>>>" << "\n";
+        cout << "\n"
+             << "\tBIENVENIDO A" << "\n";
+        cout << "<<<<<<<<AHORCADO GAME>>>>>>>>" << "\n";
+        cout << "\t<<MENU DE JUEGO>>" << "\n";
         cout << "1) Jugar." << "\n";
         cout << "2) Ayuda." << "\n";
         cout << "3) Equipo de desarrollo." << "\n";
@@ -71,7 +79,7 @@ int main()
             }
         case '2':
             system("cls");
-            cout << "Preguntas frecuentes:" << endl;
+            cout << "Preguntas frecuentes:" << "\n";
             break;
         case '3':
             system("cls");
@@ -200,18 +208,65 @@ string Dificultad(int &opc)
 void Jugar(string palabra)
 {
     system("cls");
-    for(int i=0;i<(int)palabra.size(); i++)
+    for (int i = 0; i < (int)palabra.size(); i++)
     {
-        PalabraEscondida +="-";
+        PalabraEscondida += "-";
     }
+
     while (vida > 0)
     {
         cout << "\t<<<<<<<<AHORCADO GAME>>>>>>>>" << "\n";
         Cuerpo();
-        cout<<"\n";
-        cout<<"Errores: "<<"\t"<<Errores<<"\n";
-        cout<<"Palabra a adivinar: "<<"\t"<<PalabraEscondida<<"\n";
+        cout << "\n";
+        cout << "Errores: " << "\t" << Errores << "\n";
+        cout << "Palabra a adivinar: " << "\t" << PalabraEscondida << "\n";
+        cout << "Ingrese la letra que desea, en minuscula: " << "\n";
+        cin >> LetraSeleccionada;
+
+        system("cls");
+        LetraCorrecta = false;
+        for (int i = 0; i < (int)palabra.size(); i++)
+        {
+            if (palabra[i] == LetraSeleccionada)
+            {
+                PalabraEscondida[i] = LetraSeleccionada;
+                LetraCorrecta = true;
+            }
+        }
+        if (LetraCorrecta == false)
+        {
+            vida--;
+            Errores += LetraSeleccionada;
+        }
+
+        PalabraCompleta = true;
+        for (int i = 0; i < (int)palabra.size(); i++)
+        {
+            if (PalabraEscondida[i] == '-')
+            {
+                PalabraCompleta = false;
+            }
+        }
+        if (PalabraCompleta)
+        {
+            cout << "\t<<<<<<<<AHORCADO GAME>>>>>>>>" << "\n";
+            Cuerpo();
+            cout << "Fallos cometidos: " << Errores << "\n";
+            cout << "Palabra: " << palabra << "\n";
+            cout << "\tFelicidades has adivinado la palabra!" << "\n";
+            cout << "\t\t\tGANASTE" << "\n";
+        }
     }
+    if (PalabraCompleta == false)
+    {
+        cout << "\t<<<<<<<<AHORCADO GAME>>>>>>>>" << "\n";
+        Cuerpo();
+        cout << "Fallos cometidos: " << Errores << "\n";
+        cout << "La palabra a adivinar era: " << palabra << "\n";
+        cout << "\tLo sentimos, no has adivinado la palabra :(" << "\n";
+        cout << "\t\t\tPERDISTE" << "\n";
+    }
+    return;
 }
 // Funcion para el dibujo de ahorcado.
 void Cuerpo()
@@ -219,74 +274,74 @@ void Cuerpo()
     switch (vida)
     {
     case 6:
-        cout << " _________" << endl;
-        cout << " |       |" << endl;
-        cout << " | " << endl;
-        cout << " | " << endl;
-        cout << " | " << endl;
-        cout << " | " << endl;
-        cout << " | " << endl;
-        cout << "___" << endl;
+        cout << " _________" << "\n";
+        cout << " |       |" << "\n";
+        cout << " | " << "\n";
+        cout << " | " << "\n";
+        cout << " | " << "\n";
+        cout << " | " << "\n";
+        cout << " | " << "\n";
+        cout << "___" << "\n";
         break;
     case 5:
-        cout << " _________" << endl;
-        cout << " |       |" << endl;
-        cout << " |       O" << endl;
-        cout << " | " << endl;
-        cout << " | " << endl;
-        cout << " | " << endl;
-        cout << " | " << endl;
-        cout << "___" << endl;
+        cout << " _________" << "\n";
+        cout << " |       |" << "\n";
+        cout << " |       O" << "\n";
+        cout << " | " << "\n";
+        cout << " | " << "\n";
+        cout << " | " << "\n";
+        cout << " | " << "\n";
+        cout << "___" << "\n";
         break;
     case 4:
-        cout << " _________" << endl;
-        cout << " |       |" << endl;
-        cout << " |       O" << endl;
-        cout << " |       |" << endl;
-        cout << " | " << endl;
-        cout << " | " << endl;
-        cout << " | " << endl;
-        cout << "___" << endl;
+        cout << " _________" << "\n";
+        cout << " |       |" << "\n";
+        cout << " |       O" << "\n";
+        cout << " |       |" << "\n";
+        cout << " | " << "\n";
+        cout << " | " << "\n";
+        cout << " | " << "\n";
+        cout << "___" << "\n";
         break;
     case 3:
-        cout << " _________" << endl;
-        cout << " |       |" << endl;
-        cout << " |       O" << endl;
-        cout << " |      /|" << endl;
-        cout << " | " << endl;
-        cout << " | " << endl;
-        cout << " | " << endl;
-        cout << "___" << endl;
+        cout << " _________" << "\n";
+        cout << " |       |" << "\n";
+        cout << " |       O" << "\n";
+        cout << " |      /|" << "\n";
+        cout << " | " << "\n";
+        cout << " | " << "\n";
+        cout << " | " << "\n";
+        cout << "___" << "\n";
         break;
     case 2:
-        cout << " _________" << endl;
-        cout << " |       |" << endl;
-        cout << " |       O" << endl;
-        cout << " |      /|\\" << endl;
-        cout << " | " << endl;
-        cout << " | " << endl;
-        cout << " | " << endl;
-        cout << "___" << endl;
+        cout << " _________" << "\n";
+        cout << " |       |" << "\n";
+        cout << " |       O" << "\n";
+        cout << " |      /|\\" << "\n";
+        cout << " | " << "\n";
+        cout << " | " << "\n";
+        cout << " | " << "\n";
+        cout << "___" << "\n";
         break;
     case 1:
-        cout << " _________" << endl;
-        cout << " |       |" << endl;
-        cout << " |       O" << endl;
-        cout << " |      /|\\" << endl;
-        cout << " |      /" << endl;
-        cout << " | " << endl;
-        cout << " | " << endl;
-        cout << "___" << endl;
+        cout << " _________" << "\n";
+        cout << " |       |" << "\n";
+        cout << " |       O" << "\n";
+        cout << " |      /|\\" << "\n";
+        cout << " |      /" << "\n";
+        cout << " | " << "\n";
+        cout << " | " << "\n";
+        cout << "___" << "\n";
         break;
     case 0:
-        cout << " _________" << endl;
-        cout << " |       |" << endl;
-        cout << " |       O" << endl;
-        cout << " |      /|\\" << endl;
-        cout << " |      / \\" << endl;
-        cout << " | " << endl;
-        cout << " | " << endl;
-        cout << "---" << endl;
+        cout << " _________" << "\n";
+        cout << " |       |" << "\n";
+        cout << " |       O" << "\n";
+        cout << " |      /|\\" << "\n";
+        cout << " |      / \\" << "\n";
+        cout << " | " << "\n";
+        cout << " | " << "\n";
+        cout << "---" << "\n";
         break;
     }
 }
