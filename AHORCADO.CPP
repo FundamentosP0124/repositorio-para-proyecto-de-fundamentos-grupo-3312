@@ -9,10 +9,10 @@ void Jugar(string palabra);
 void Cuerpo();
 
 // Variables globales
-int vida = 6;
+int vida;
 string PalabraEscondida;
 string Errores;
-char LetraSeleccionada;
+char LetraSeleccionada, volverjugar;
 bool LetraCorrecta, PalabraCompleta;
 
 // codigo principal
@@ -22,13 +22,12 @@ int main()
     char PrincipalElection, ModoElection;
     int opc;
     string palabra;
-    PalabraEscondida = "";
-    Errores = "";
 
     // while para repetir el menu hasta que el usuario decida salir
     while (true)
     {
         // Mostrar menu del juego
+        system("cls");
         cout << "\n"
              << "\tBIENVENIDO A" << "\n";
         cout << "<<<<<<<<AHORCADO GAME>>>>>>>>" << "\n";
@@ -46,6 +45,7 @@ int main()
             system("cls");
             while (true)
             {
+                system("cls");
                 cout << "\tMODOS DE JUEGO: " << "\n";
                 cout << "1) 1 persona." << "\n";
                 cout << "2) 2 personas." << "\n";
@@ -208,6 +208,10 @@ string Dificultad(int &opc)
 void Jugar(string palabra)
 {
     system("cls");
+    //Variables que se deben reiniciar en cada partida
+    PalabraEscondida = "";
+    Errores = "";
+    vida=6;
     for (int i = 0; i < (int)palabra.size(); i++)
     {
         PalabraEscondida += "-";
@@ -255,6 +259,10 @@ void Jugar(string palabra)
             cout << "Palabra: " << palabra << "\n";
             cout << "\tFelicidades has adivinado la palabra!" << "\n";
             cout << "\t\t\tGANASTE" << "\n";
+            cout << "\n";
+            cout << "Ingrese 0 para volver al menu principal, o ingrese 1 para volver a jugar:" << "\n";
+            cin >> volverjugar;
+            break;
         }
     }
     if (PalabraCompleta == false)
@@ -265,8 +273,22 @@ void Jugar(string palabra)
         cout << "La palabra a adivinar era: " << palabra << "\n";
         cout << "\tLo sentimos, no has adivinado la palabra :(" << "\n";
         cout << "\t\t\tPERDISTE" << "\n";
+        cout << "\n";
+        cout << "Ingrese 0 para volver al menu principal, o ingrese 1 para volver a jugar:" << "\n";
+        cin >> volverjugar;
     }
-    return;
+    // switch para determinar si vuelve a jugar o no.
+    switch (volverjugar)
+    {
+    case '1':
+    {
+        Jugar(palabra);
+    }
+    default:
+    {
+        main();
+    }
+    }
 }
 // Funcion para el dibujo de ahorcado.
 void Cuerpo()
