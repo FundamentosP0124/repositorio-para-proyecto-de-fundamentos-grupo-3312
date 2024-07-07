@@ -1,0 +1,99 @@
+	|||||                      PREGUNTAS FRECUENTES                     |||||
+
+		~ Como jugar a AHORCADO GAME?
+	El juego consiste en adivinar una palabra secreta letra por letra. 
+	Tienes un numero limitado de intentos para adivinar la palabra completa
+	antes de que el personaje del ahorcado este completamente dibujado, 
+	cada letra incorrecta o un numero que adivines se agregara al dibujo. 
+	El juego termina cuando adivinas la palabra correctamente o pierdes 
+	todas tus vidas.
+
+		~ Cuantas vidas tengo en el juego?
+	Para ambos modos de juego los jugadores tienen 6 vidas en total.
+	Cada vez que introduces una letra incorrecta o un numero, pierdes una 
+	vida.
+
+		~ Como ingreso la letra que deseo?
+	Para adivinar una letra, simplemente digitala y presiona Enter. 
+	El juego te indicara si la letra es correcta o incorrecta.
+
+		~ Que ocurre si adivino una letra correctamente?
+	Si adivinas una letra correctamente, se revelara en la palabra secreta
+	en todas las posiciones donde pertenece.
+
+
+		~ Por que aparece el error "Error. Opcion ingresada
+		no valida."?
+	Este error se presenta cuando se ha ingresado una opcion inexistente.
+	Para evitar ese error, asegurate de ingresar una opcion que se muestre
+	en los menus.
+
+	------------------------------------------------------------------------
+	AYUDA PARA UN JUGADOR:
+
+	Antes de iniciar.
+
+		~ Como funcionan los modos de dificultad?
+	Al seleccionar jugar puedes elegir el modo de dificultad que deseas. 
+	Para el juego de 1 persona se dividen de la siguiente manera:
+		Modo facil: palabras de 5 a 6 letras.
+		Modo intermedio: palabras de 6 a 7 letras.
+		Modo dificil: palabras de 7 a 9 letras.
+	Debe seleccionar una opcion correcta para poder continuar con el 
+	juego.
+
+
+	Volver a jugar.
+
+		~ Como puedo volver a jugar?
+	Al terminar una partida puedes comenzar una nueva ingresando el numero
+	1, de esta manera se te redirigira al menu de modo de dificultades y 
+	al elegir una de las opciones podras iniciar una nueva partida. Si 
+	deseas cambiar el modo de juego para volver a jugar, presiona 
+	cualquier caracter, se te redirigira al menu principal y puedes 
+	seleccionar lo que deseas.
+
+	------------------------------------------------------------------------
+	AYUDA PARA DOS JUGADORES:
+
+	Antes de iniciar.
+
+		~ Como funcionan los modos de dificultad?
+	Al seleccionar jugar puedes elegir el modo de dificultad que deseas. 
+		Modo facil: palabras de 6 a 7 letras.
+		Modo intermedio: palabras de 8 a 9 letras.
+		Modo dificil: palabras de 10 a 11 letras.
+
+	Durante el juego.
+
+		~ Como funciona el turno de los jugadores?
+	Cada jugador se turnará para adivinar una letra, el nombre del 
+	jugador se mostrara al inciar cada turno.
+	El jugador actual debe introducir una letra y presionar Enter, luego
+	el turno pasa al otro jugador.
+
+	Fin del juego.
+
+		~Sistema de puntuaciones:
+	Para obtener un ganador, sin importar si se ha ganado la partida o 
+	perdido, se muestran las puntuaciones que ha obtenido cada jugador. Estas
+	puntuaciones se obtienen al sumar las letras acertadas y al restar el
+	numero de fallos de cada jugador.
+
+	Volver a jugar.
+
+		~ Como podemos volver a jugar?
+	Al terminar una partida puedes comenzar una nueva ingresando el numero
+	1, de esta manera se te redirigira al menu de modo de dificultades y 
+	al elegir una de las opciones podras iniciar una nueva partida. Si 
+	deseas cambiar el modo de juego para volver a jugar, presiona 
+	cualquier caracter, se te redirigira al menu principal y puedes 
+	seleccionar lo que deseas.
+
+		~ Desea cambiar el nombre de jugadores?
+	Si desea cambiar el nombre de los jugadores para volver a jugar una
+	partida, debe ingresar cualquier caracter, se te redirigira al menu
+	principal, selecciona jugar y modo de juego para dos personas.
+	Ahora podras ingresar los nombres que deseas.
+	------------------------------------------------------------------------
+

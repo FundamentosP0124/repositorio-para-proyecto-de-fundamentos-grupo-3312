@@ -1,6 +1,7 @@
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
+#include <fstream>
 using namespace std;
 
 // Declaracion de funciones
@@ -9,6 +10,7 @@ string Dificultad(int &opc);
 void Jugar(string palabra);
 void Cuerpo();
 void jugadores();
+void Ayuda();
 
 // Variables globales
 int vida, opc;
@@ -69,8 +71,7 @@ int main()
             }
         case '2':
             system("cls");
-            cout << "Preguntas frecuentes:" << "\n";
-            cout << "\n";
+            Ayuda();
             cout << "Ingrese cualquier caracter para regresar al menu principal: " << "\n";
             cin >> volver;
             switch (volver)
@@ -273,7 +274,7 @@ void Jugar(string palabra)
             cout << "\tFelicidades has adivinado la palabra!" << "\n";
             cout << "\t\t\tGANASTE" << "\n";
             cout << "\n";
-            cout << "Ingrese 0 para volver al menu principal, o ingrese 1 para volver a jugar:" << "\n";
+            cout << "Ingrese 1 para volver a jugar, o ingrese 0 para volver al menu principal:" << "\n";
             cin >> volverjugar;
             break;
         }
@@ -287,7 +288,7 @@ void Jugar(string palabra)
         cout << "\tLo sentimos, no has adivinado la palabra :(" << "\n";
         cout << "\t\t\tPERDISTE" << "\n";
         cout << "\n";
-        cout << "Ingrese 0 para volver al menu principal, o ingrese 1 para volver a jugar:" << "\n";
+        cout << "Ingrese 1 para volver a jugar, o ingrese cualquier caracter para volver al menu principal:" << "\n";
         cin >> volverjugar;
     }
     // switch para determinar si vuelve a jugar o no.
@@ -400,5 +401,23 @@ void jugadores()
         cout << "\n";
         cout << "Si estan bien ingrese cero, si desea cambiarlos ingrese cualquier caracter:" << "\n";
         cin >> correcto;
+    }
+}
+void Ayuda()
+{
+
+    ifstream archivo("PREGUNTASFRECUENTES.txt");
+    if (archivo.is_open())
+    {
+        string ayuda;
+        while (getline(archivo, ayuda))
+        {
+            cout << ayuda << endl;
+        }
+        archivo.close();
+    }
+    else
+    {
+        cout << "No se pudo abrir el archivo de ayuda." << endl;
     }
 }
