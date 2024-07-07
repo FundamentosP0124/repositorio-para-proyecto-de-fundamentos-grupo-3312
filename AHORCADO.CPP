@@ -1,5 +1,6 @@
 #include <iostream>
 #include <ctime>
+#include <cstdlib>
 using namespace std;
 
 // Declaracion de funciones
@@ -7,12 +8,12 @@ string dificultad2(int &opc);
 string Dificultad(int &opc);
 void Jugar(string palabra);
 void Cuerpo();
+void jugadores();
 
 // Variables globales
-int vida;
-string PalabraEscondida;
-string Errores;
-char LetraSeleccionada, volverjugar;
+int vida, opc;
+string PalabraEscondida, Errores, nombres[3];
+char LetraSeleccionada, volverjugar, correcto, volver;
 bool LetraCorrecta, PalabraCompleta;
 
 // codigo principal
@@ -20,14 +21,12 @@ int main()
 {
     // declaracion de variables
     char PrincipalElection, ModoElection;
-    int opc;
     string palabra;
 
     // while para repetir el menu hasta que el usuario decida salir
     while (true)
     {
         // Mostrar menu del juego
-        system("cls");
         cout << "\n"
              << "\tBIENVENIDO A" << "\n";
         cout << "<<<<<<<<AHORCADO GAME>>>>>>>>" << "\n";
@@ -45,12 +44,9 @@ int main()
             system("cls");
             while (true)
             {
-                system("cls");
                 cout << "\tMODOS DE JUEGO: " << "\n";
-                cout << "1) 1 persona." << "\n";
-                cout << "2) 2 personas." << "\n";
-                cout << "3) 3 personas." << "\n";
-                cout << "4) 4 personas." << "\n";
+                cout << "1) Un solo jugador." << "\n";
+                cout << "2) Dos jugadores." << "\n";
                 cout << "Porfavor, ingrese su eleccion: " << "\n";
                 cin >> ModoElection;
 
@@ -61,15 +57,9 @@ int main()
                     Jugar(palabra);
                     break;
                 case '2':
-                    palabra = Dificultad(opc);
-                    break;
-                case '3':
+                    jugadores();
                     palabra = dificultad2(opc);
                     break;
-                case '4':
-                    palabra = dificultad2(opc);
-                    break;
-
                 default:
                     system("cls");
                     cout << "Error opcion ingresada no valida." << "\n";
@@ -80,19 +70,41 @@ int main()
         case '2':
             system("cls");
             cout << "Preguntas frecuentes:" << "\n";
+            cout << "\n";
+            cout << "Ingrese cualquier caracter para regresar al menu principal: " << "\n";
+            cin >> volver;
+            switch (volver)
+            {
+            case '0':
+                break;
+            default:
+                break;
+            }
+            system("cls");
             break;
         case '3':
             system("cls");
             cout << "\tEquipo de trabajo: " << "\n";
             cout << "walter Samuel Guillen Gonzalez / No de Carnet: 00097524." << "\n";
             cout << "Stephanie Alessandra Vasquez Maravilla / No de Carnet: 00056024." << "\n";
+            cout << "\n";
+            cout << "Ingrese cualquier caracter para regresar al menu principal: " << "\n";
+            cin >> volver;
+            switch (volver)
+            {
+            case '0':
+                break;
+            default:
+                break;
+            }
+            system("cls");
             break;
         case '4':
             system("cls");
             cout << "\n";
             cout << "Usted ha salido exitosamente del programa." << "\n";
             cout << "Gracias por jugar :)" << "\n";
-            return 0;
+            exit(0);
             break;
         default:
             system("cls");
@@ -103,7 +115,7 @@ int main()
     }
 }
 
-// Funcion dificultad para 3 y 4 personas
+// Funcion dificultad para 2 personas
 string dificultad2(int &opc)
 {
     // declaracion variables
@@ -153,7 +165,7 @@ string dificultad2(int &opc)
     }
     return palabra;
 }
-// Funcion dificultad para 1 y 2 personas.
+// Funcion dificultad para 1 jugador.
 string Dificultad(int &opc)
 {
     // Declaracion de variables.
@@ -208,10 +220,11 @@ string Dificultad(int &opc)
 void Jugar(string palabra)
 {
     system("cls");
-    //Variables que se deben reiniciar en cada partida
+    // Variables que se deben reiniciar en cada partida
     PalabraEscondida = "";
     Errores = "";
-    vida=6;
+    vida = 6;
+    // for para esconder la palabra al jugador
     for (int i = 0; i < (int)palabra.size(); i++)
     {
         PalabraEscondida += "-";
@@ -282,10 +295,12 @@ void Jugar(string palabra)
     {
     case '1':
     {
+        palabra = Dificultad(opc);
         Jugar(palabra);
     }
     default:
     {
+        system("cls");
         main();
     }
     }
@@ -365,5 +380,25 @@ void Cuerpo()
         cout << " | " << "\n";
         cout << "---" << "\n";
         break;
+    }
+}
+
+void jugadores()
+{
+    while (correcto != '0')
+    {
+        correcto = '1';
+        system("cls");
+        cout << "Porfavor, ingrese el nombre del jugador 1:" << "\n";
+        cin >> nombres[1];
+        cout << "Porfavor, ingrese el nombre del jugador 2:" << "\n";
+        cin >> nombres[2];
+        system("cls");
+        cout << "Los nombres que ingreso fueron los siguientes: " << "\n";
+        cout << "1. " << nombres[1] << "\n";
+        cout << "2. " << nombres[2] << "\n";
+        cout << "\n";
+        cout << "Si estan bien ingrese cero, si desea cambiarlos ingrese cualquier caracter:" << "\n";
+        cin >> correcto;
     }
 }
