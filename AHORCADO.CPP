@@ -14,7 +14,7 @@ void jugadores();
 void Ayuda();
 
 // Variables globales
-int vida, opc,x;
+int vida, opc,x, aciertos[3], errores[3];
 string PalabraEscondida, Errores, nombres[3];
 char LetraSeleccionada, volverjugar, correcto, volver;
 bool LetraCorrecta, PalabraCompleta;
@@ -318,6 +318,12 @@ void JugarDos(string palabra)
     PalabraEscondida = "";
     Errores = "";
     vida = 6;
+    //for para reinciar arreglos
+    for (int i = 1; i < 3; i++)
+    {
+        aciertos[i] = 0;
+        errores[i] = 0;
+    }
     // for para esconder la palabra al jugador
     for (int i = 0; i < (int)palabra.size(); i++)
     {
@@ -343,12 +349,14 @@ void JugarDos(string palabra)
             {
                 PalabraEscondida[i] = LetraSeleccionada;
                 LetraCorrecta = true;
+                aciertos[x]++; 
             }
         }
         if (LetraCorrecta == false)
         {
             vida--;
             Errores += LetraSeleccionada;
+            errores[x]++;
         }
 
         PalabraCompleta = true;
