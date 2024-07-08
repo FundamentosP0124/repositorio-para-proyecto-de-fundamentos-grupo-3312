@@ -14,7 +14,7 @@ void jugadores();
 void Ayuda();
 
 // Variables globales
-int vida, opc,x, aciertos[3], errores[3];
+int vida, opc, x, aciertos[3], errores[3];
 string PalabraEscondida, Errores, nombres[3];
 char LetraSeleccionada, volverjugar, correcto, volver;
 bool LetraCorrecta, PalabraCompleta;

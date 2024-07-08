@@ -8,6 +8,11 @@
 	El juego termina cuando adivinas la palabra correctamente o pierdes 
 	todas tus vidas.
 
+	Que son los modos de juego?
+	Este menú permite seleccionar la cantidad de jugadores que 
+	participaran en la partida de AHORCADO. Hay dos opciones disponibles:
+	un jugador y dos jugadores, elige el modo que prefieras.
+
 		~ Cuantas vidas tengo en el juego?
 	Para ambos modos de juego los jugadores tienen 6 vidas en total.
 	Cada vez que introduces una letra incorrecta o un numero, pierdes una 
