@@ -12,11 +12,12 @@ void JugarDos(string palabra);
 void Cuerpo();
 void jugadores();
 void Ayuda();
+void mostrarPuntuaciones();
 
 // Variables globales
 int vida, opc, x, aciertos[3], errores[3];
 string PalabraEscondida, Errores, nombres[3];
-char LetraSeleccionada, volverjugar, correcto, volver;
+char LetraSeleccionada, volverjugar, correcto, volver, puntuacion;
 bool LetraCorrecta, PalabraCompleta;
 
 // codigo principal
@@ -273,7 +274,7 @@ void Jugar(string palabra)
             Cuerpo();
             cout << "Fallos cometidos: " << Errores << "\n";
             cout << "Palabra: " << palabra << "\n";
-            cout << "\tFelicidades has adivinado la palabra!" << "\n";
+            cout << "\tFelicidades, has adivinado la palabra!" << "\n";
             cout << "\t\t\tGANASTE" << "\n";
             cout << "\n";
             cout << "Ingrese 1 para volver a jugar, o ingrese 0 para volver al menu principal:" << "\n";
@@ -373,21 +374,32 @@ void JugarDos(string palabra)
             Cuerpo();
             cout << "Fallos cometidos: " << Errores << "\n";
             cout << "Palabra: " << palabra << "\n";
-            cout << "\tFelicidades has adivinado la palabra!" << "\n";
-            cout << "\t\t\tGANASTE" << "\n";
+            cout << "\tFelicidades, han adivinado la palabra!" << "\n";
+            cout << "\t\t\tGANARON" << "\n";
             cout << "\n";
+            cout << "Ingrese cualquier caracter para obtener las puntuaciones: " << "\n";
+            cin >> puntuacion;
+            switch (puntuacion)
+            {
+            case '0':
+            default:
+            {
+                mostrarPuntuaciones();
+                break;
+            }
+            }
             cout << "Ingrese 1 para volver a jugar, o ingrese 0 para volver al menu principal:" << "\n";
             cin >> volverjugar;
             break;
         }
 
-        if(x<2)
+        if (x < 2)
         {
             x++;
         }
-        else if(x==2)
+        else if (x == 2)
         {
-            x=x/2;
+            x = x / 2;
         }
     }
     if (PalabraCompleta == false)
@@ -396,25 +408,65 @@ void JugarDos(string palabra)
         Cuerpo();
         cout << "Fallos cometidos: " << Errores << "\n";
         cout << "La palabra a adivinar era: " << palabra << "\n";
-        cout << "\tLo sentimos, no has adivinado la palabra :(" << "\n";
-        cout << "\t\t\tPERDISTE" << "\n";
+        cout << "\tLo sentimos, no han adivinado la palabra :(" << "\n";
+        cout << "\t\t\tPERDIERON" << "\n";
         cout << "\n";
+        cout << "Ingrese cualquier caracter para obtener las puntuaciones: " << "\n";
+        cin >> puntuacion;
+        switch (puntuacion)
+        {
+        case '0':
+        default:
+        {
+            mostrarPuntuaciones();
+            break;
+        }
+        }
         cout << "Ingrese 1 para volver a jugar, o ingrese cualquier caracter para volver al menu principal:" << "\n";
         cin >> volverjugar;
     }
+
     // switch para determinar si vuelve a jugar o no.
     switch (volverjugar)
     {
     case '1':
     {
-        palabra = Dificultad(opc);
-        Jugar(palabra);
+        palabra = dificultad2(opc);
+        JugarDos(palabra);
     }
     default:
     {
         system("cls");
         main();
     }
+    }
+}
+//Funcion para determinar ganador de juego para dos personas
+void mostrarPuntuaciones()
+{
+    system("cls");
+    int puntuaciones[3];
+    cout << "\tPUNTUACIONES:"<< "\n";
+    for (int i = 1; i < 3; i++)
+    {
+        cout << "Jugador: " << nombres[i] << "\n";
+        cout << "Cantidad de aciertos: " << aciertos[i] << "\n";
+        cout << "Cantidad de errores: " << errores[i] << "\n";
+        puntuaciones[i] = aciertos[i] - errores[i];
+        cout << "Puntuacion: " << puntuaciones[i] << "\n";
+        cout << "\n";
+    }
+    if (puntuaciones[1] > puntuaciones[2])
+    {
+        cout << "EL GANADOR ES: " << nombres[1] << "\n";
+    }
+    else if (puntuaciones[2] > puntuaciones[1])
+    {
+        cout << "\tEL GANADOR ES: " << nombres[2] << "\n";
+    }
+    else
+    {
+        cout << "ES UN EMPATE" << "\n";
     }
 }
 // Funcion para el dibujo de ahorcado.
