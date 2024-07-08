@@ -8,12 +8,13 @@ using namespace std;
 string dificultad2(int &opc);
 string Dificultad(int &opc);
 void Jugar(string palabra);
+void JugarDos(string palabra);
 void Cuerpo();
 void jugadores();
 void Ayuda();
 
 // Variables globales
-int vida, opc;
+int vida, opc,x;
 string PalabraEscondida, Errores, nombres[3];
 char LetraSeleccionada, volverjugar, correcto, volver;
 bool LetraCorrecta, PalabraCompleta;
@@ -61,6 +62,7 @@ int main()
                 case '2':
                     jugadores();
                     palabra = dificultad2(opc);
+                    JugarDos(palabra);
                     break;
                 default:
                     system("cls");
@@ -217,7 +219,7 @@ string Dificultad(int &opc)
     return palabra;
 }
 
-// Funcion jugar partida
+// Funcion jugar partida para un jugador
 void Jugar(string palabra)
 {
     system("cls");
@@ -277,6 +279,107 @@ void Jugar(string palabra)
             cout << "Ingrese 1 para volver a jugar, o ingrese 0 para volver al menu principal:" << "\n";
             cin >> volverjugar;
             break;
+        }
+    }
+    if (PalabraCompleta == false)
+    {
+        cout << "\t<<<<<<<<AHORCADO GAME>>>>>>>>" << "\n";
+        Cuerpo();
+        cout << "Fallos cometidos: " << Errores << "\n";
+        cout << "La palabra a adivinar era: " << palabra << "\n";
+        cout << "\tLo sentimos, no has adivinado la palabra :(" << "\n";
+        cout << "\t\t\tPERDISTE" << "\n";
+        cout << "\n";
+        cout << "Ingrese 1 para volver a jugar, o ingrese cualquier caracter para volver al menu principal:" << "\n";
+        cin >> volverjugar;
+    }
+    // switch para determinar si vuelve a jugar o no.
+    switch (volverjugar)
+    {
+    case '1':
+    {
+        palabra = Dificultad(opc);
+        Jugar(palabra);
+    }
+    default:
+    {
+        system("cls");
+        main();
+    }
+    }
+}
+
+// Funcion jugar partida para dos jugadores
+void JugarDos(string palabra)
+{
+    system("cls");
+    // Variables que se deben reiniciar en cada partida
+    x=1;
+    PalabraEscondida = "";
+    Errores = "";
+    vida = 6;
+    // for para esconder la palabra al jugador
+    for (int i = 0; i < (int)palabra.size(); i++)
+    {
+        PalabraEscondida += "-";
+    }
+
+    while (vida > 0)
+    {
+        cout << "\t<<<<<<<<AHORCADO GAME>>>>>>>>" << "\n";
+        Cuerpo();
+        cout << "\n";
+        cout<<"Turno de -----> "<< nombres[x]<<"\n";
+        cout << "Errores: " << "\t" << Errores << "\n";
+        cout << "Palabra a adivinar: " << "\t" << PalabraEscondida << "\n";
+        cout << "Ingrese la letra que desea, en minuscula: " << "\n";
+        cin >> LetraSeleccionada;
+
+        system("cls");
+        LetraCorrecta = false;
+        for (int i = 0; i < (int)palabra.size(); i++)
+        {
+            if (palabra[i] == LetraSeleccionada)
+            {
+                PalabraEscondida[i] = LetraSeleccionada;
+                LetraCorrecta = true;
+            }
+        }
+        if (LetraCorrecta == false)
+        {
+            vida--;
+            Errores += LetraSeleccionada;
+        }
+
+        PalabraCompleta = true;
+        for (int i = 0; i < (int)palabra.size(); i++)
+        {
+            if (PalabraEscondida[i] == '-')
+            {
+                PalabraCompleta = false;
+            }
+        }
+        if (PalabraCompleta)
+        {
+            cout << "\t<<<<<<<<AHORCADO GAME>>>>>>>>" << "\n";
+            Cuerpo();
+            cout << "Fallos cometidos: " << Errores << "\n";
+            cout << "Palabra: " << palabra << "\n";
+            cout << "\tFelicidades has adivinado la palabra!" << "\n";
+            cout << "\t\t\tGANASTE" << "\n";
+            cout << "\n";
+            cout << "Ingrese 1 para volver a jugar, o ingrese 0 para volver al menu principal:" << "\n";
+            cin >> volverjugar;
+            break;
+        }
+
+        if(x<2)
+        {
+            x++;
+        }
+        else if(x==2)
+        {
+            x=x/2;
         }
     }
     if (PalabraCompleta == false)
