@@ -90,7 +90,7 @@ int main()
         case '3':
             system("cls");
             cout << "\tEquipo de trabajo: " << "\n";
-            cout << "walter Samuel Guillen Gonzalez / No de Carnet: 00097524." << "\n";
+            cout << "Walter Samuel Guillen Gonzalez / No de Carnet: 00097524." << "\n";
             cout << "Stephanie Alessandra Vasquez Maravilla / No de Carnet: 00056024." << "\n";
             cout << "\n";
             cout << "Ingrese cualquier caracter para regresar al menu principal: " << "\n";
@@ -389,7 +389,7 @@ void JugarDos(string palabra)
                 break;
             }
             }
-            cout << "Ingrese 1 para volver a jugar, o ingrese 0 para volver al menu principal:" << "\n";
+            cout << "Ingrese 1 para volver a jugar, o ingrese cualquier caracter para volver al menu principal:" << "\n";
             cin >> volverjugar;
             break;
         }
