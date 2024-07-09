@@ -15,7 +15,7 @@ void Ayuda();
 void mostrarPuntuaciones();
 
 // Variables globales
-int vida, opc, x, aciertos[3], errores[3];
+int vida, opc, x, aciertos[3], errores[3], puntuaciones[3];
 string PalabraEscondida, Errores, nombres[3];
 char LetraSeleccionada, volverjugar, correcto, volver, puntuacion;
 bool LetraCorrecta, PalabraCompleta;
@@ -277,7 +277,7 @@ void Jugar(string palabra)
             cout << "\tFelicidades, has adivinado la palabra!" << "\n";
             cout << "\t\t\tGANASTE" << "\n";
             cout << "\n";
-            cout << "Ingrese 1 para volver a jugar, o ingrese 0 para volver al menu principal:" << "\n";
+            cout << "Ingrese 1 para volver a jugar, o ingrese cualquier caracter para volver al menu principal:" << "\n";
             cin >> volverjugar;
             break;
         }
@@ -445,7 +445,6 @@ void JugarDos(string palabra)
 void mostrarPuntuaciones()
 {
     system("cls");
-    int puntuaciones[3];
     cout << "\tPUNTUACIONES:"<< "\n";
     for (int i = 1; i < 3; i++)
     {

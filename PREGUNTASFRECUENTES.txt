@@ -9,7 +9,7 @@
 	todas tus vidas.
 
 	Que son los modos de juego?
-	Este menú permite seleccionar la cantidad de jugadores que 
+	Este menu permite seleccionar la cantidad de jugadores que 
 	participaran en la partida de AHORCADO. Hay dos opciones disponibles:
 	un jugador y dos jugadores, elige el modo que prefieras.
 
