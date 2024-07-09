@@ -48,12 +48,13 @@ int main()
             system("cls");
             while (true)
             {
+                //Mostrar menu de modos de juego
                 cout << "\tMODOS DE JUEGO: " << "\n";
                 cout << "1) Un solo jugador." << "\n";
                 cout << "2) Dos jugadores." << "\n";
                 cout << "Porfavor, ingrese su eleccion: " << "\n";
                 cin >> ModoElection;
-
+                //Switch para opciones del menu de modos de juego
                 switch (ModoElection)
                 {
                 case '1':
@@ -119,10 +120,10 @@ int main()
     }
 }
 
-// Funcion dificultad para 2 personas
+// Funcion dificultad para 2 jugadores
 string dificultad2(int &opc)
 {
-    // declaracion variables
+    // Declaracion variables
     string Facil[15] = {"plumas", "jirafa", "mueble", "estufa", "libros", "hormiga", "caminar", "manzana", "parpado", "fuegos", "reglas", "botella", "cuadro", "pintura", "ardilla"};
     string Intermedio[15] = {"mariposas", "pantuflas", "esmeralda", "fantasma", "florero", "cocodrilo", "alimentos", "galletas", "panaderos", "salvavidas", "espejismo", "trompeta", "aventuras", "buzonero", "caminante"};
     string Dificil[15] = {"helicoptero", "maravilloso", "astronauta", "computadora", "arquitecto", "maratonista", "deslizador", "libelula", "panoramico", "carismatico", "tradicional", "estanteria", "dinosaurio", "ferrocarril", "agradecido"};
@@ -130,10 +131,10 @@ string dificultad2(int &opc)
     char difelection;
 
     system("cls");
-    // while en caso de ingresar opcion no valida
+    // While en caso de ingresar opcion no valida
     while (difelection != '1' && difelection != '2' && difelection != '3')
     {
-        // menu de dificultad
+        //Menu de dificultad
         cout << "\tMODOS DE DIFICULTAD: " << "\n";
         cout << "1) Facil." << "\n";
         cout << "2) Intermedio." << "\n";
@@ -141,7 +142,7 @@ string dificultad2(int &opc)
         cout << "Porfavor,ingrese su eleccion: " << "\n";
         cin >> difelection;
 
-        // switch para eleccion dificultad
+        //Switch para eleccion dificultad / Casos con semilla para determinar palabra a utilizar en el juego.
         switch (difelection)
         {
         case '1':
@@ -228,12 +229,12 @@ void Jugar(string palabra)
     PalabraEscondida = "";
     Errores = "";
     vida = 6;
-    // for para esconder la palabra al jugador
+    // For para esconder la palabra al jugador
     for (int i = 0; i < (int)palabra.size(); i++)
     {
         PalabraEscondida += "-";
     }
-
+    //Desarrollo del juego para un jugador
     while (vida > 0)
     {
         cout << "\t<<<<<<<<AHORCADO GAME>>>>>>>>" << "\n";
@@ -294,7 +295,7 @@ void Jugar(string palabra)
         cout << "Ingrese 1 para volver a jugar, o ingrese cualquier caracter para volver al menu principal:" << "\n";
         cin >> volverjugar;
     }
-    // switch para determinar si vuelve a jugar o no.
+    // Switch para determinar si vuelve a jugar o no.
     switch (volverjugar)
     {
     case '1':
@@ -319,18 +320,18 @@ void JugarDos(string palabra)
     PalabraEscondida = "";
     Errores = "";
     vida = 6;
-    //for para reinciar arreglos
+    //For para reinciar arreglos
     for (int i = 1; i < 3; i++)
     {
         aciertos[i] = 0;
         errores[i] = 0;
     }
-    // for para esconder la palabra al jugador
+    //For para esconder la palabra al jugador
     for (int i = 0; i < (int)palabra.size(); i++)
     {
         PalabraEscondida += "-";
     }
-
+    //Desarrollo del juego para dos jugadores
     while (vida > 0)
     {
         cout << "\t<<<<<<<<AHORCADO GAME>>>>>>>>" << "\n";
@@ -413,6 +414,7 @@ void JugarDos(string palabra)
         cout << "\n";
         cout << "Ingrese cualquier caracter para obtener las puntuaciones: " << "\n";
         cin >> puntuacion;
+        //Switch para mostrar puntuaciones de partida y determinar ganador
         switch (puntuacion)
         {
         case '0':
@@ -426,7 +428,7 @@ void JugarDos(string palabra)
         cin >> volverjugar;
     }
 
-    // switch para determinar si vuelve a jugar o no.
+    // Switch para determinar si vuelve a jugar o no
     switch (volverjugar)
     {
     case '1':
@@ -446,6 +448,7 @@ void mostrarPuntuaciones()
 {
     system("cls");
     cout << "\tPUNTUACIONES:"<< "\n";
+    //For para determinar puntuacion de cada jugador
     for (int i = 1; i < 3; i++)
     {
         cout << "Jugador: " << nombres[i] << "\n";
@@ -455,6 +458,7 @@ void mostrarPuntuaciones()
         cout << "Puntuacion: " << puntuaciones[i] << "\n";
         cout << "\n";
     }
+    //If para determinar ganador
     if (puntuaciones[1] > puntuaciones[2])
     {
         cout << "EL GANADOR ES: " << nombres[1] << "\n";
@@ -545,7 +549,7 @@ void Cuerpo()
         break;
     }
 }
-
+//Funcion para que los jugadores ingresen sus nombres y confirmar que estan correctos
 void jugadores()
 {
     while (correcto != '0')
@@ -565,6 +569,7 @@ void jugadores()
         cin >> correcto;
     }
 }
+//Funcion para mostrar archivo de ayuda
 void Ayuda()
 {
 
